@@ -24,7 +24,9 @@ const mergeArrays = (arr1, arr2) => {
     return merged;
 }
 
+// TC: O(n + m) n -> arr1.length, m -> arr2.length
+
 let arr1 = [1, 2, 4, 5, 6];
 let arr2 = [3, 7, 8, 9];
 console.log(mergeArrays(arr1, arr2));
-console.log(mergeArrays([4,5,6],[-2,-1,0,7]))
+console.log(mergeArrays([4,5,6],[-2,-1,0,7]));

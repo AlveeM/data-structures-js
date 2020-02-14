@@ -13,5 +13,7 @@ const removeEven2 = arr => {
     return arr.filter(num => num % 2 !== 0);
 }
 
+// TC: O(n)
+
 console.log(removeEven([1,2,4,5,10,6,3]));
 console.log(removeEven2([1,2,4,5,10,6,3]));
