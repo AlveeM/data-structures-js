@@ -16,4 +16,5 @@ const rearrange = arr => {
     return arr;
 }
 
+// TC: O(n)
 console.log(rearrange([10, -1, 20, 4, 5, -9, -6]));
