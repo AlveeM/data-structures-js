@@ -10,6 +10,8 @@ const length = list => {
     return length;
 }
 
+// TC: O(n)
+
 let list = new LinkedList();
 list.insertAtHead(4);
 list.insertAtHead(3);
