@@ -155,3 +155,5 @@ list.deleteAtTail();
 list.printList();
 console.log(list.search(4));
 console.log(list.search(0));
+
+module.exports = LinkedList;
