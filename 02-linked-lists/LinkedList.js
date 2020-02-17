@@ -143,17 +143,17 @@ class LinkedList {
     }
 }
 
-let list = new LinkedList();
-list.insertAtHead(4);
-list.insertAtHead(10);
-list.insertAtHead(40);
-list.insertAtHead(5);
-list.printList();
-list.deleteAtHead();
-list.printList();
-list.deleteAtTail();
-list.printList();
-console.log(list.search(4));
-console.log(list.search(0));
+// let list = new LinkedList();
+// list.insertAtHead(4);
+// list.insertAtHead(10);
+// list.insertAtHead(40);
+// list.insertAtHead(5);
+// list.printList();
+// list.deleteAtHead();
+// list.printList();
+// list.deleteAtTail();
+// list.printList();
+// console.log(list.search(4));
+// console.log(list.search(0));
 
 module.exports = LinkedList;
