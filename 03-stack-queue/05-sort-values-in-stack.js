@@ -18,3 +18,5 @@ const insert = (stack, value) => {
         stack.push(temp);
     }
 }
+
+// TC: O(n^2)
