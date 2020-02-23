@@ -18,18 +18,18 @@ class HashTable {
         return this.size;
     }
 
-    isEmpty() {
-        return this.getSize() === 0;
-    }
-
     getIndex(key) {
         let index = key % this.slots;
         return index;
     }
 
-    insert(key, value) {
+    isEmpty() {
+        return this.getSize() === 0;
+    }
+
+    insert (key, value) {
         let bIndex = this.getIndex(key);
-        if (this.bucket[bIndex] === null) {
+        if (this.bucket[bIndex] === null || this.bucket[bIndex] === undefined) {
             this.bucket[bIndex] = new HashEntry(key, value);
             console.log(`${String(key)}, ${String(value)} - inserted`);
         } else {
@@ -49,18 +49,57 @@ class HashTable {
         this.size += 1;
         let loadFactor = Number(this.size) / Number(this.slots);
         if (loadFactor >= this.threshold) {
-            this.resize()
+            this.resize();
         }
+    }
+
+    search(key) {
+        let bIndex = this.getIndex(key);
+        let head = this.bucket[bIndex];
+        if (head !== null) {
+            while (head !== null) {
+                if (head.key === key) {
+                    return head.value;
+                }
+                head = head.next;
+            }
+        }
+        console.log("key not found");
+        return null;
+    }
+
+    deleteVal(key) {
+        let bIndex = this.getIndex(key);
+        let head = this.bucket[bIndex];
+        if (head.key === key) {
+            this.bucket[bIndex] = head.next;
+            console.log("key deleted");
+            this.size -= 1;
+            return this;
+        }
+        let prev = null;
+        while (head !== null) {
+            if (head.key === key) {
+                prev.next = head.next;
+                console.log("key deleted");
+                this.size -= 1;
+                return this;
+            }
+            prev = head;
+            head = head.next;
+        }
+        console.log("key not found");
+        return null;
     }
 
     resize() {
         let newSlots = this.slots * 2;
-        let newBucket = Array(this.newSlots).fill(null);
+        let newBucket = Array.fill(newSlots).fill(null);
         for (let i = 0; i < this.bucket.length; i++) {
             let head = this.bucket[i];
             while (head !== null) {
                 let newIndex = this.getIndex(head.key);
-                if (newBucket[newIndex] === null) {
+                if (newBucket[newIndex] === null || newBucket[newIndex === undefined]) {
                     newBucket[newIndex] = new HashEntry(head.key, head.value);
                 } else {
                     let node = newBucket[newIndex];
@@ -82,42 +121,6 @@ class HashTable {
         this.bucket = newBucket;
         this.slots = newSlots;
     }
-
-    search(key) {
-        let bIndex = this.getIndex(key);
-        let head = this.bucket[bIndex];
-        if (head !== null) {
-            while (head !== null) {
-                if (head.key === key) {
-                    return head.value;
-                }
-                head = head.next;
-            }
-        }
-        console.log("Key not found");
-        return null;
-    }
-
-    delete(key) {
-        let bIndex = this.getIndex(key);
-        let head = this.bucket[bIndex];
-        if (head.key === key) {
-            this.bucket[bIndex] = head.next;
-            console.log("key deleted");
-            this.size -= 1;
-            return this;
-        }
-        let prev = null;
-        while (head !== null) {
-            if (head.key === key) {
-                prev.next = head.next;
-                console.log("key deleted");
-                return this;
-            }
-            prev = head;
-            head = head.next;
-        }
-        console.log("key not found");
-        return null;
-    }
 }
+
+module.exports = HashTable;
