@@ -94,7 +94,7 @@ class HashTable {
 
     resize() {
         let newSlots = this.slots * 2;
-        let newBucket = Array.fill(newSlots).fill(null);
+        let newBucket = Array(newSlots).fill(null);
         for (let i = 0; i < this.bucket.length; i++) {
             let head = this.bucket[i];
             while (head !== null) {
