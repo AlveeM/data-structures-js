@@ -14,3 +14,5 @@ const totalWords = rootN => {
     }
     return result;
 }
+
+// TC: O(n)
