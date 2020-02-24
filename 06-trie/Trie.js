@@ -35,12 +35,12 @@ class Trie {
             let index = this.getIndex(key[level]);
             if (currentNode.children[index] === null) {
                 currentNode.children[index] = new TrieNode(key[level]);
-                console.log(`${String(key[level])} inserted`);
+                // console.log(`${String(key[level])} inserted`);
             }
             currentNode = currentNode.children[index];
         }
         currentNode.markAsLeaf();
-        console.log(`'${key}' inserted`)
+        // console.log(`'${key}' inserted`)
     }
 
     search(key) {
