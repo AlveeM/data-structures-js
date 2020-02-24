@@ -117,3 +117,5 @@ class Trie {
         this.deleteHelper(key, this.root, key.length, 0);
     }
 }
+
+module.exports = Trie;
