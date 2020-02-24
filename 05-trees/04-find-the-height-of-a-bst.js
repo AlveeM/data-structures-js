@@ -16,11 +16,4 @@ const findHeight = rootNode => {
     }
 }
 
-var BST = new BinarySearchTree(6)
-BST.insertBST(4)
-BST.insertBST(9)
-BST.insertBST(5)
-BST.insertBST(2)
-BST.insertBST(8)
-BST.insertBST(12)
-console.log(findHeight(BST.root))
+// TC: O(n)
