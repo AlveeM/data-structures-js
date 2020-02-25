@@ -68,3 +68,5 @@ class minHeap {
         }
     }
 }
+
+module.exports = minHeap;

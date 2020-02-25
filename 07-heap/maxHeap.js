@@ -68,3 +68,5 @@ class maxHeap {
         }
     }
 }
+
+module.exports = maxHeap;
